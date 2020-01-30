@@ -4,6 +4,14 @@ import { Widget } from "./components/Widget";
 import { Table } from "./components/Table";
 
 function App() {
+	const widgets = [
+		{ bg: `bg-green-500`, fa: `fa-wallet` },
+		{ bg: `bg-orange-600`, fa: `fa-users` },
+		{ bg: `bg-yellow-600`, fa: `fa-user-plus` },
+		{ bg: `bg-blue-600`, fa: `fa-server` },
+		{ bg: `bg-indigo-600`, fa: `fa-tasks` },
+		{ bg: `bg-red-600`, fa: `fa-inbox` },
+	];
   return (
     <div>
         <nav id="header" className="bg-gray-900 fixed w-full z-10 top-0 shadow">
@@ -42,31 +50,29 @@ function App() {
 	    <div className="container w-full mx-auto pt-20">
 	    	<div className="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
 	    		<div className="flex flex-wrap">
-                    <Widget props={ { bg: `bg-green-500`, fa: `fa-wallet` } }/>
-                    <Widget props={ { bg: `bg-orange-600`, fa: `fa-users` } }/>
-                    <Widget props={ { bg: `bg-yellow-600`, fa: `fa-user-plus` } }/>
-                    <Widget props={ { bg: `bg-blue-600`, fa: `fa-server` } }/>
-                    <Widget props={ { bg: `bg-indigo-600`, fa: `fa-tasks` } }/>
-                    <Widget props={ { bg: `bg-red-600`, fa: `fa-inbox` } }/>
+					{
+						widgets.map((widget, idx) => <Widget props={ widget } key={idx}/>)
+						
+					}
                 </div>
 	    		<hr className="border-b-2 border-gray-600 my-8 mx-4"/>
                 <div className="flex flex-row flex-wrap flex-grow mt-2">
                     <div className="w-full md:w-1/2 p-3">
-                    <div className="w-full p-3">
-                        <div className="bg-gray-900 border border-gray-800 rounded shadow">
-                            <div className="border-b border-gray-800 p-3">
-                                <h5 className="font-bold uppercase text-gray-600">Table</h5>
-                            </div>
-                            <div className="p-5">
-                                <Table/>
-                                <p className="py-2"><a href="#" className="text-white">See More issues...</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-	    	</div>
-	    </div> 
-    </div>
+                    	<div className="w-full p-3">
+                    	    <div className="bg-gray-900 border border-gray-800 rounded shadow">
+                    	        <div className="border-b border-gray-800 p-3">
+                    	            <h5 className="font-bold uppercase text-gray-600">Table</h5>
+                    	        </div>
+                    	        <div className="p-5">
+                    	            <Table/>
+                    	            <p className="py-2"><a href="#" className="text-white">See More issues...</a></p>
+                    	        </div>
+                    	    </div>
+                    	</div>
+                	</div>
+	    		</div>
+	    	</div> 
+    	</div>
     </div>
   );
 }

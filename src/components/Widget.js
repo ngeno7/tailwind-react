@@ -1,7 +1,6 @@
 import React from "react";
 
 export const Widget = (props) => {
-
     return (
         <div className="w-full md:w-1/2 xl:w-1/3 p-3">
             <div className="bg-gray-900 border border-gray-800 rounded shadow p-2">
